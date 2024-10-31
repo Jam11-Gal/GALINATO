@@ -1,8 +1,8 @@
 // Prompt the user for their information
-let fullName = prompt("Enter your full name: ");
-let age = parseInt(prompt("Enter your age: "));
-let favNumber = parseInt(prompt("Enter your favorite number: "));
-let favColor = prompt("Enter your favorite color: ");
+let fullName = prompt("Ian Gallano: ");
+let age = parseInt(prompt("20: "));
+let favNumber = parseInt(prompt("26: "));
+let favColor = prompt("Black,White: ");
 
 // Create the userProfile object
 let userProfile = {
