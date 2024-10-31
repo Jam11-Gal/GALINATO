@@ -1,0 +1,66 @@
+let DSA = [];
+let PL = [];
+let Networks = [];
+
+function enrollStudent(subject) {
+  let studentName = prompt("Jarren:");
+  subject.push(studentName);
+  console.log(`${studentName} enrolled in ${subject === DSA ? "DSA" : subject === PL ? "PL" : "Networks"}`);
+}
+
+function unenrollStudent(subject) {
+  if (subject.length === 0) {
+    console.log("No students enrolled in this subject.");
+    return;
+  }
+  console.log("Currently enrolled students:");
+  for (let i = 0; i < subject.length; i++) {
+    console.log(`${i + 1}. ${subject[i]}`);
+  }
+  let studentName = prompt("Sofia:"); 
+  let index = subject.indexOf(studentName);
+  if (index !== -1) {
+    subject.splice(index, 1);
+    console.log(`${studentName} unenrolled from ${subject === DSA ? "DSA" : subject === PL ? "PL" : "Networks"}`);
+  } else {
+    console.log(`${studentName} not found in the enrollment list.`);
+  }
+}
+
+function selectSubject() {
+  while (true) {
+    let subjectChoice = prompt("Select a subject:\n(A) DSA\n(B) PL\n(C) Networks"); // Corrected prompt
+    if (subjectChoice.toUpperCase() === "A") {
+      return DSA;
+    } else if (subjectChoice.toUpperCase() === "B") {
+      return PL;
+    } else if (subjectChoice.toUpperCase() === "C") {
+      return Networks;
+    } else {
+      console.log("Invalid subject choice. Please select A, B, or C.");
+    }
+  }
+}
+
+function main() {
+  while (true) {
+    let subject = selectSubject();
+    let operationChoice = prompt("Select an operation:\n(A) Enroll\n(B) Unenroll\n(C) Select Another Subject\n(D) Exit");
+    if (operationChoice.toUpperCase() === "A") {
+      enrollStudent(subject);
+    } else if (operationChoice.toUpperCase() === "B") {
+      unenrollStudent(subject);
+    } else if (operationChoice.toUpperCase() === "C") {
+      continue;
+    } else if (operationChoice.toUpperCase() === "D") {
+      console.log("DSA Students:", DSA);
+      console.log("PL Students:", PL);
+      console.log("Networks Students:", Networks);
+      break;
+    } else {
+      console.log("Invalid operation choice. Please select A, B, C, or D.");
+    }
+  }
+}
+
+main();
